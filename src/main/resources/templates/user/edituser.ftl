@@ -132,7 +132,14 @@ a:hover {
 								<label class="control-label"><span>工资</span></label> <input
 									name="salary" class="form-control" value="${(user.salary)!''}"/>
 							</div>
-							
+							<div class="col-md-6 form-group">
+								<label class="control-label"><span>绩效工资</span></label> <input
+									name="performance" class="form-control" value="${(user.performance)!''}"/>
+							</div>
+							<div class="col-md-6 form-group">
+								<label class="control-label"><span>津贴补贴</span></label> <input
+									name="subsidy" class="form-control" value="${(user.subsidy)!''}"/>
+							</div>
 							
 							<#if where??>
 							<#else>

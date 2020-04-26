@@ -90,6 +90,10 @@ public class User {
 	
 	private String salary;		//用户薪水
 	
+	private String performance;		//绩效
+
+	private String subsidy;		//补贴
+
 	@Column(name="img_path")
 	private String imgPath;		//用户头像路径
 	
@@ -161,6 +165,23 @@ public class User {
 
 	public void setDiscuss(List<Discuss> discuss) {
 		this.discuss = discuss;
+	}
+
+	
+	public String getPerformance() {
+		return performance;
+	}
+
+	public void setPerformance(String performance) {
+		this.performance = performance;
+	}
+
+	public String getSubsidy() {
+		return subsidy;
+	}
+
+	public void setSubsidy(String subsidy) {
+		this.subsidy = subsidy;
 	}
 
 	public User() {}		
@@ -444,13 +465,18 @@ public void setSuperman(Boolean superman) {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", userTel=" + userTel + ", realName=" + realName
-				+ ", eamil=" + eamil + ", address=" + address + ", userEdu=" + userEdu + ", school=" + school
-				+ ", idCard=" + idCard + ", bank=" + bank + ", sex=" + sex + ", themeSkin=" + themeSkin + ", birth="
-				+ birth + ", userSign=" + userSign + ", password=" + password + ", salary=" + salary + ", imgPath="
-				+ imgPath + ", hireTime=" + hireTime + ", isLock=" + isLock + ", lastLoginIp=" + lastLoginIp
-				+ ", lastLoginTime=" + lastLoginTime + ", modifyTime=" + modifyTime + ", modifyUserId=" + modifyUserId
-				+ ", fatherId=" + fatherId + ", holiday=" + holiday + ",superman=" + superman + ",pinyin=" + pinyin + "]";
+				+ ", pinyin=" + pinyin + ", eamil=" + eamil + ", address=" + address + ", userEdu=" + userEdu
+				+ ", superman=" + superman + ", school=" + school + ", idCard=" + idCard + ", bank=" + bank + ", sex="
+				+ sex + ", themeSkin=" + themeSkin + ", birth=" + birth + ", userSign=" + userSign + ", password="
+				+ password + ", salary=" + salary + ", performance=" + performance + ", subsidy=" + subsidy
+				+ ", imgPath=" + imgPath + ", hireTime=" + hireTime + ", isLock=" + isLock + ", lastLoginIp="
+				+ lastLoginIp + ", lastLoginTime=" + lastLoginTime + ", modifyTime=" + modifyTime + ", modifyUserId="
+				+ modifyUserId + ", fatherId=" + fatherId + ", holiday=" + holiday + ", position=" + position
+				+ ", dept=" + dept + ", role=" + role + ", scheduleLists=" + scheduleLists + ", replys=" + replys
+				+ ", discuss=" + discuss + ", note=" + note + ", aSet=" + aSet + "]";
 	}
+
+	
 	
 	
 	

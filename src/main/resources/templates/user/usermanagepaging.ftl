@@ -34,6 +34,9 @@
 					<th scope="col">角色</th>
 					<th scope="col">电话</th>
 					<th scope="col">工资</th>
+					<th scope="col">绩效</th>
+					<th scope="col">津贴补贴</th>
+					
 					<th scope="col">操作</th>
 				</tr>
 				<#list users as user>
@@ -57,6 +60,9 @@
 						<td><span>${(user.role.roleName)!''}</span></td>
 						<td><span>${(user.userTel)!''}</span></td>
 						<td><span>${(user.salary)!''}</span></td>
+						<td><span>${(user.performance)!''}</span></td>
+						<td><span>${(user.subsidy)!''}</span></td>
+						
 						<td><a  href="useredit?userid=${user.userId}" class="label xiugai"><span
 								class="glyphicon glyphicon-edit"></span> 修改</a> <a
 							onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
