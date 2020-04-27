@@ -136,7 +136,7 @@ public class TaskController {
 		// 查询状态表
 		Iterable<SystemStatusList> statuslist = sdao.findAll();
 		// 查询部门下面的员工
-		Page<User> pagelist = udao.findByFatherId(userId,pa);
+		Page<User> pagelist = udao.findAll(pa);
 		List<User> emplist=pagelist.getContent();
 		// 查询部门表
 		Iterable<Dept> deptlist = ddao.findAll();
@@ -229,7 +229,7 @@ public class TaskController {
 	 */
 	@RequestMapping("update")
 	public String update(Tasklist task, HttpSession session) {
-		String userId = ((String) session.getAttribute("userId")).trim();
+		String userId = ( session.getAttribute("userId") + "").trim();
 		Long userid = Long.parseLong(userId);
 		User userlist = udao.findOne(userid);
 		task.setUsersId(userlist);
