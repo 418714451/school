@@ -262,8 +262,8 @@ public class IndexController {
 		model.addAttribute("pstatuslist", pstatus);
 		
 		//列举便签
-		List<Notepaper> notepapers=notepaperDao.findByUserIdOrderByCreateTimeDesc(userId);
-		model.addAttribute("notepaperList", notepapers);
+//		List<Notepaper> notepapers=notepaperDao.findByUserIdOrderByCreateTimeDesc(userId);
+//		model.addAttribute("notepaperList", notepapers);
 		
 		//列举几个流程记录
 		List<ProcessList> pList=processListDao.findlastthree(userId);
