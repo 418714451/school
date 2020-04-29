@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import cn.gson.oasys.model.dao.user.UserDao;
 import cn.gson.oasys.model.entity.user.LoginRecord;
 import cn.gson.oasys.model.entity.user.User;
+import cn.gson.oasys.redis.RedisUtils;
 import cn.gson.oasys.services.user.UserLongRecordService;
 import eu.bitwalker.useragentutils.Browser;
 import eu.bitwalker.useragentutils.UserAgent;
@@ -35,6 +36,9 @@ public class LoginsController {
 	@Autowired
 	private UserDao uDao;
 	@Autowired
+	private RedisUtils redisUtil;
+	
+	@Autowired
 	UserLongRecordService ulService;
 	
 	public static final String CAPTCHA_KEY = "session_captcha";
@@ -47,6 +51,7 @@ public class LoginsController {
 	 */
 	@RequestMapping(value="logins",method=RequestMethod.GET)
 	public String login(){
+	
 		return "login/login";
 	}
 	
@@ -94,12 +99,13 @@ public class LoginsController {
 		}
 		Object sessionId=session.getAttribute("userId");
 		System.out.println(user);
-		if(sessionId==user.getUserId()){
+		if("userId".equals(redisUtil.get(String.valueOf(sessionId)))){
 			System.out.println("当前用户已经登录了；不能重复登录");
 			model.addAttribute("hasmess", "当前用户已经登录了；不能重复登录");
 			session.setAttribute("thisuser", user);
 			return "login/login";
 		}else{
+			redisUtil.set(user.getUserId().toString(), "userId");
 			session.setAttribute("userId", user.getUserId());
 			Browser browser = UserAgent.parseUserAgentString(req.getHeader("User-Agent")).getBrowser();
 			Version version = browser.getVersion(req.getHeader("User-Agent"));
@@ -117,6 +123,7 @@ public class LoginsController {
 			User user=(User) session.getAttribute("thisuser");
 			System.out.println(user);
 			session.removeAttribute("userId");
+			redisUtil.delete(user.getUserId().toString());
 			session.setAttribute("userId", user.getUserId());
 		}else{
 			System.out.println("有问题！");
