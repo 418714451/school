@@ -377,7 +377,7 @@ public class AttendceController {
 		setSomething(baseKey, type, status, time, icon, model);
 		Long userId = Long.parseLong(session.getAttribute("userId") + "");
 		List<Long> ids = new ArrayList<>();
-		List<User> users = uDao.findByFatherId(userId);
+		List<User> users = uDao.findAll();
 		for (User user : users) {
 			ids.add(user.getUserId());
 		}
