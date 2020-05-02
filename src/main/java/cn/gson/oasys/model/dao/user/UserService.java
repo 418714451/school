@@ -24,10 +24,10 @@ public class UserService {
 		Pageable pa=new  PageRequest(page, 10);
 		if (!StringUtils.isEmpty(baseKey)) {
 			// 模糊查询
-			return userDao.findbyFatherId(baseKey, parentid, pa);
+			return userDao.findAll(pa);
 		}
 		else{
-			return userDao.findByFatherId(parentid, pa);
+			return userDao.findAll(pa);
 		}
 		
 	}
