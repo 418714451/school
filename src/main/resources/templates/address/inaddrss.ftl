@@ -57,7 +57,7 @@
 			</#list>
 			<#else>
 				<tr>
-				<td colspan="7" style="text-align: center;background: #eee;">没能找到联系人~~~</td>
+				<td colspan="7" style="text-align: center;background: #eee;"></td>
 				</tr>
 			</#if>
 		</table>
