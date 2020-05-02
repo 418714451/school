@@ -135,7 +135,7 @@ li.activee>a {
 							共享文件</a></li>
 					<li>
 						<a href="##" class="filetypetrash"><span
-							class="iconfont icon-lajitong"></span> 回收战</a>
+							class="iconfont icon-lajitong"></span> 回收站</a>
 					</li>
 				</ul>
 			</div>
