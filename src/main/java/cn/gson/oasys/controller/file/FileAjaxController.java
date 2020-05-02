@@ -136,7 +136,7 @@ public class FileAjaxController {
 		System.out.println("查找！~~~~~~");
 		String findlike = "%" +findfileandpath+ "%";
 		User user = udao.findOne(userid);
-		FilePath fpath = fpdao.findByParentIdAndPathUserId(1L, userid);
+//		FilePath fpath = fpdao.findByParentIdAndPathUserId(1L, userid);
 		String contenttype;
 		List<FileList> fileLists = null;
 		List<FilePath> filePaths = null;

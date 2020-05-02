@@ -93,7 +93,7 @@ $(".filetypeshare").click(function(){
 $(".loadfiletype").on("click",".findfileandpathgo",function(){
 	var findfileandpath = $(".loadfiletype .box-header .findfileandpath").val();
 	var loadtype = $(".loadfiletype .box-header .loadfilestype").val();
-	alert(findfileandpath+loadtype);
+	// alert(findfileandpath+loadtype);
 	$(".loadfiletype").load("findfileandpath",{type:loadtype,findfileandpath:findfileandpath});
 });
 
