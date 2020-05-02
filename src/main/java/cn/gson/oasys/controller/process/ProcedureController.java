@@ -781,7 +781,7 @@ public class ProcedureController {
 		Long fatherid=lu.getFatherId();//申请人父id
 		Long userid=shen.getUserId();//审核人userid
 		String val=req.getParameter("val");
-		if(roleid>=3L && Objects.equals(fatherid, userid)){
+		if(Objects.equals(fatherid, userid)){
 			SystemTypeList  type=tydao.findOne(eve.getTypeId());
 			if(eve.getTypeId()==40){
 				if(type.getTypeSortValue()<eve.getLeaveDays()){
