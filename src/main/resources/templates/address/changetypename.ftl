@@ -17,7 +17,7 @@
 			<input type="hidden" id="commentid"/>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-				<button type="button" class="btn btn-primary" id="commentsave" data-dismiss="modal">提交	</button>
+				<button type="button" class="btn btn-primary" id="commentsave" data-dismiss="modal">确认	</button>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal -->

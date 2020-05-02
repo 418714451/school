@@ -4,7 +4,7 @@
 				style="color: white; font-size: 30px;"></span>
 </button>
 <div class="alert alert-success alert-dismissable" role="alert">
-	分享成功:以下用户已用户该联系人，不允许重复存在！
+	分享成功:以下用户已保存该联系人！
 	<button class="close thisclose" type="button">&times;</button>
 	<span class="error-mess"></span>
 </div>
