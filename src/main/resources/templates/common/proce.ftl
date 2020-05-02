@@ -59,9 +59,9 @@
 				<div class="modal-p">
 					<h2 style="text-align: center;">操作错误</h2>
 					<#if error??>
-						<p class="modal-error-mess">${error}别调皮，不要乱搞</p>
+						<p class="modal-error-mess">${error}错误</p>
 					<#else>
-						<p class="modal-error-mess">请合理选择审核人。别调皮，不要乱搞</p>
+						<p class="modal-error-mess">请合理选择审核人。</p>
 					</#if>
 					<div class="modal-p">
 						<button type="button" class="btn btn-primary" onclick="javascript:history.back();">返回</button>
