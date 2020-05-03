@@ -158,15 +158,15 @@ public class LoginsController {
 	
 	
 	@RequestMapping("/captcha")
-    public void generate(HttpServletRequest request, HttpServletResponse response){
+    public void generate(HttpServletRequest request,HttpSession session, HttpServletResponse response){
           response.setContentType("image/jpeg");
           //禁止图像缓存       
           response.setHeader("Pragma","no-cache");
           response.setHeader("Cache-Control", "no-cache"); 
           response.setDateHeader("Expires", 0);     
-          HttpSession session = request.getSession();  
+//          HttpSession session = request.getSession();  
           CaptchaUtils captchaUtils = new CaptchaUtils(120, 40, 5,30); 
-          session.setAttribute("CAPTCHA_KEY", captchaUtils.getCode());      
+          session.setAttribute(CAPTCHA_KEY, captchaUtils.getCode());      
          
           try {
             captchaUtils.write(response.getOutputStream());
