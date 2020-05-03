@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
@@ -206,7 +207,8 @@ public class UserpanelController {
 			users.setUserSign(user.getUserSign());
 		}
 		if(!StringUtil.isEmpty(user.getPassword())){
-			users.setPassword(user.getPassword());
+			BCryptPasswordEncoder encode = new BCryptPasswordEncoder();//加密
+			users.setPassword(encode.encode(user.getPassword()));
 		}
 		if(!StringUtil.isEmpty(imgpath)){
 			users.setImgPath(imgpath);

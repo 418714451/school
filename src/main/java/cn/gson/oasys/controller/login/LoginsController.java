@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -84,8 +85,11 @@ public class LoginsController {
 		/*
 		 * 将用户名分开查找；用户名或者电话号码；
 		 * */
-		User user=uDao.findOneUser(userName, password);
-		if(Objects.isNull(user)){
+		User usr=uDao.findOneUser(userName, password);
+		User user = uDao.findAllByUserName(userName);
+		BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
+
+		if(!encode.matches(password,user.getPassword())){
 			System.out.println(user);
 			System.out.println("账号或密码错误!");
 			model.addAttribute("errormess", "账号或密码错误!");

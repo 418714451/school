@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.domain.Sort.Order;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +44,7 @@ public class UserController {
 	PositionDao pdao;
 	@Autowired
 	RoleDao rdao;
-	
+
 	@RequestMapping("userlogmanage")
 	public String userlogmanage() {
 		return "user/userlogmanage";
@@ -121,7 +122,9 @@ public class UserController {
 		if(user.getUserId()==null){
 			String pinyin=PinyinHelper.convertToPinyinString(user.getUserName(), "", PinyinFormat.WITHOUT_TONE);
 			user.setPinyin(pinyin);
-			user.setPassword("123456");
+            //加密
+            BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
+            user.setPassword(bcryptPasswordEncoder.encode("123456"));
 			user.setDept(dept);
 			user.setRole(role);
 			user.setPosition(position);
@@ -144,7 +147,9 @@ public class UserController {
 
 			user2.setFatherId(dept.getDeptmanager());
 			if(isbackpassword){
-				user2.setPassword("123456");
+                //加密
+                BCryptPasswordEncoder bcryptPasswordEncoder = new BCryptPasswordEncoder();
+                user2.setPassword(bcryptPasswordEncoder.encode("123456"));
 			}
 			user2.setDept(dept);
 			user2.setRole(role);
