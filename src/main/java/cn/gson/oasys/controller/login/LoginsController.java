@@ -73,15 +73,15 @@ public class LoginsController {
 	public String loginCheck(HttpSession session,HttpServletRequest req,Model model) throws UnknownHostException{
 		String userName=req.getParameter("userName").trim();
 		String password=req.getParameter("password");
-//		String ca=req.getParameter("code").toLowerCase();
-//		String sesionCode = (String) req.getSession().getAttribute(CAPTCHA_KEY);
+		String ca=req.getParameter("code").toLowerCase();
+		String sesionCode = (String) req.getSession().getAttribute(CAPTCHA_KEY);
 		model.addAttribute("userName", userName);
-//		if(!ca.equals(sesionCode.toLowerCase())){
-//			System.out.println("验证码输入错误!");
-//			model.addAttribute("errormess", "验证码输入错误!");
-//			req.setAttribute("errormess","验证码输入错误!");
-//			return "login/login";
-//		}
+		if(!ca.equals(sesionCode.toLowerCase())){
+			System.out.println("验证码输入错误!");
+			model.addAttribute("errormess", "验证码输入错误!");
+			req.setAttribute("errormess","验证码输入错误!");
+			return "login/login";
+		}
 		/*
 		 * 将用户名分开查找；用户名或者电话号码；
 		 * */
@@ -138,7 +138,7 @@ public class LoginsController {
 	}
 	
 	
-	@RequestMapping("captcha")
+	@RequestMapping("captcha1")
 	public void captcha(HttpServletRequest request, HttpServletResponse response,HttpSession session) throws IOException{
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");
@@ -155,6 +155,26 @@ public class LoginsController {
 		// 将验证码存储在session以便登录时校验
 		session.setAttribute(CAPTCHA_KEY, verifyCode.toLowerCase());
 	}
+	
+	
+	@RequestMapping("/captcha")
+    public void generate(HttpServletRequest request, HttpServletResponse response){
+          response.setContentType("image/jpeg");
+          //禁止图像缓存       
+          response.setHeader("Pragma","no-cache");
+          response.setHeader("Cache-Control", "no-cache"); 
+          response.setDateHeader("Expires", 0);     
+          HttpSession session = request.getSession();  
+          CaptchaUtils captchaUtils = new CaptchaUtils(120, 40, 5,30); 
+          session.setAttribute("CAPTCHA_KEY", captchaUtils.getCode());      
+         
+          try {
+            captchaUtils.write(response.getOutputStream());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }                 
+    }
 	
 
 }
