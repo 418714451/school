@@ -73,15 +73,15 @@ public class LoginsController {
 	public String loginCheck(HttpSession session,HttpServletRequest req,Model model) throws UnknownHostException{
 		String userName=req.getParameter("userName").trim();
 		String password=req.getParameter("password");
-		String ca=req.getParameter("code").toLowerCase();
-		String sesionCode = (String) req.getSession().getAttribute(CAPTCHA_KEY);
+//		String ca=req.getParameter("code").toLowerCase();
+//		String sesionCode = (String) req.getSession().getAttribute(CAPTCHA_KEY);
 		model.addAttribute("userName", userName);
-		if(!ca.equals(sesionCode.toLowerCase())){
-			System.out.println("验证码输入错误!");
-			model.addAttribute("errormess", "验证码输入错误!");
-			req.setAttribute("errormess","验证码输入错误!");
-			return "login/login";
-		}
+//		if(!ca.equals(sesionCode.toLowerCase())){
+//			System.out.println("验证码输入错误!");
+//			model.addAttribute("errormess", "验证码输入错误!");
+//			req.setAttribute("errormess","验证码输入错误!");
+//			return "login/login";
+//		}
 		/*
 		 * 将用户名分开查找；用户名或者电话号码；
 		 * */
@@ -89,7 +89,7 @@ public class LoginsController {
 		User user = uDao.findAllByUserName(userName);
 		BCryptPasswordEncoder encode = new BCryptPasswordEncoder();
 
-		if(!encode.matches(password,user.getPassword())){
+		if(!encode.matches(password,user.getPassword())&&Objects.isNull(usr)){
 			System.out.println(user);
 			System.out.println("账号或密码错误!");
 			model.addAttribute("errormess", "账号或密码错误!");

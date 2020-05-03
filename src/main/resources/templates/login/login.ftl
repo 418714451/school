@@ -120,11 +120,11 @@
           <h2>LOGIN</h2>
           <input type="text" placeholder="UserName/TeL" autofocus="autofocus" value="${(userName)!''}" name="userName" class="userName test"/>
           <input type="password" placeholder="Password" value="" name="password" class="password test"/>
-           <input type="text" placeholder="Code" style="margin-bottom: 20px;width:152px" name="code" class="code test"/>
-           <div class="login-img" style="display:inline-block">
-					<img class="thisimg" onclick="this.src='captcha?r'+Date.now()" src="captcha" alt="验证码" style="width: 100px;height: 42px;border-radius: 3px;">
-				</div>
-		    <br>
+           <#--<input type="text" placeholder="Code" style="margin-bottom: 20px;width:152px" name="code" class="code test"/>-->
+           <#--<div class="login-img" style="display:inline-block">-->
+					<#--<img class="thisimg" onclick="this.src='captcha?r'+Date.now()" src="captcha" alt="验证码" style="width: 100px;height: 42px;border-radius: 3px;">-->
+				<#--</div>-->
+		    <#--<br>-->
        <button class="btn_login btn" type="submit" >LOGIN</button>
        
         </div>
