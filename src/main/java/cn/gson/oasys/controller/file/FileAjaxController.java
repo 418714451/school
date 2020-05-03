@@ -87,6 +87,8 @@ public class FileAjaxController {
 		case "video":
 			contenttype = "video/%";
 			fileLists = fldao.findByUserAndContentTypeLikeAndFileIstrash(user, contenttype, 0L);
+			List<FileList> tmp = fldao.findByUserAndFileShuffixAndFileIsshare(user,"flv",0L);
+			fileLists.addAll(tmp);
 			System.out.println(fileLists);
 			model.addAttribute("files", fileLists);
 			model.addAttribute("isload",1);

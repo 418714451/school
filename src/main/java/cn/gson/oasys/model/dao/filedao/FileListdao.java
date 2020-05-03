@@ -19,6 +19,8 @@ public interface FileListdao extends PagingAndSortingRepository<FileList, Long>{
 	FileList findByFileNameAndFpath(String filename,FilePath filepath);
 	
 	List<FileList> findByUserAndContentTypeLikeAndFileIstrash(User user,String contenttype,Long istrash);
+
+	List<FileList> findByUserAndFileShuffixAndFileIsshare(User user, String fileShuffix, Long istrash);
 	
 	List<FileList> findByUserAndFileIstrash(User user,Long istrash);
 	
