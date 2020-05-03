@@ -208,7 +208,7 @@ function check() {
 	var isRight = 1;
 	$('.form-control').each(function(index) {
 		// 如果在这些input框中，判断是否能够为空
-		if ($(this).val() == "") {
+		if ($(this).val() == ""||$(this).val()==0) {
 			if($(this).hasClass("cha")){
 				return true;
 			}
