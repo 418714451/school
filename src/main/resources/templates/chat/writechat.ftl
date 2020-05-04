@@ -195,6 +195,13 @@ function check() {
 	$('.alert-danger').css('display', 'none');
 	var isRight = 1;
 	var textarea=$('.ke-edit-iframe').contents().find('body').text();
+
+	if ($("input[name='votetitle']").size() == 0){
+        var errorMess = "[投票选项标题不能为空]";
+        mess(errorMess);
+        return false;
+	}
+
 	if($('.title').val()==''){
 		var errorMess = "[标题信息不能为空]";
 		mess(errorMess);

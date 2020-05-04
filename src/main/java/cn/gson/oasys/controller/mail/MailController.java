@@ -685,9 +685,12 @@ public class MailController {
 										mail.getContent(), attaid.getAttachmentPath(), attaid.getAttachmentName());
 							
 							}else{
-								mservice.pushmail(number.getMailAccount(), number.getPassword(), st.nextToken(), number.getMailUserName(), mail.getMailTitle(),
-										mail.getContent(), null, null);
+								if (number != null) {
+									mservice.pushmail(number.getMailAccount(), number.getPassword(), st.nextToken(), number.getMailUserName(), mail.getMailTitle(),
+											mail.getContent(), null, null);
+								}
 							}
+							st.nextElement();
 						}
 				}
 				
