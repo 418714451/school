@@ -148,9 +148,19 @@ public class User {
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private Set<Attends> aSet;
 	
+	private String rate;
 	
 	
 	
+	
+	public String getRate() {
+		return rate;
+	}
+
+	public void setRate(String rate) {
+		this.rate = rate;
+	}
+
 	public String getPinyin() {
 		return pinyin;
 	}

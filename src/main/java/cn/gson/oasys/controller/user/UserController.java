@@ -144,7 +144,9 @@ public class UserController {
 			user2.setSalary(user.getSalary());
 			user2.setPerformance(user.getPerformance());
 			user2.setSubsidy(user.getSubsidy());
+			user2.setRate(user.getRate());
 
+			
 			user2.setFatherId(dept.getDeptmanager());
 			if(isbackpassword){
                 //加密

@@ -140,7 +140,37 @@ a:hover {
 								<label class="control-label"><span>津贴补贴</span></label> <input
 									name="subsidy" class="form-control" value="${(user.subsidy)!''}"/>
 							</div>
-							
+							<div class="col-md-6 form-group">
+								<label class="control-label"> <span>评级</span>
+								</label> <select class="form-control" name="rate" >
+								<#if user.rate== '无'>
+									<option selected='selected' value="无">无</option>
+									<#else>
+									<option  value="无">无</option>
+								</#if>
+								
+								<#if user.rate== 'A'>
+									<option selected='selected' value="A">A</option>
+									<#else>
+									<option  value="A">A</option>
+								</#if>
+								<#if user.rate== 'B'>
+									<option selected='selected' value="B">B</option>
+									<#else>
+									<option  value="B">B</option>
+								</#if>
+									<#if user.rate== 'C'>
+									<option selected='selected' value="C">C</option>
+									<#else>
+									<option  value="C">C</option>
+								</#if>
+								<#if user.rate== 'D'>
+									<option selected='selected' value="D">D</option>
+									<#else>
+									<option  value="D">D</option>
+								</#if>
+								</select>
+							</div>
 							<#if where??>
 							<#else>
 								<div class="col-md-6 form-group">
