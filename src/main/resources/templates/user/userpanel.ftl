@@ -276,11 +276,11 @@ h1, h3 {
 								<label class="control-label"><span id="ctl00_cphMain_Label15">皮肤</span></label> <select
 									name="themeSkin" id="ctl00_cphMain_ddlSkin" onchange="alert('刷新页面生效')"
 									class="form-control select2">
-									<option value="blue">经典蓝</option>
-									<option value="green">青草绿</option>
-									<option value="red">中国红</option>
-									<option value="yellow">商务黄</option>
-									<option value="purple">高贵紫</option>
+									<option value="blue">蓝</option>
+									<option value="green">绿</option>
+									<option value="red">红</option>
+									<option value="yellow">黄</option>
+									<option value="purple">紫</option>
 
 								</select>
 							</div>

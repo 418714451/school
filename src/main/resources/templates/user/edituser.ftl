@@ -156,10 +156,10 @@ a:hover {
 							<div class="col-md-6 form-group">
 								<label class="control-label"> <span>皮肤</span>
 								</label> <select class="form-control" name="themeSkin" value="${(user.themeSkin)!''}">
-									<option value="blue">经典蓝</option>
-									<option value="green">原谅绿</option>
-									<option value="red">姨妈红</option>
-									<option value="yellow">shit黄</option>
+									<option value="blue">蓝</option>
+									<option value="green">绿</option>
+									<option value="red">红</option>
+									<option value="yellow">黄</option>
 								</select>
 							</div>
 							<input type="hidden" name="userId" value="${(user.userId)!''}"/>
