@@ -324,6 +324,10 @@ public class ChatManageController {
 					String[] colors=req.getParameterValues("votecolor");
 					System.out.println(voteList);
 					Set<VoteTitles> voteTitles=new HashSet<>();
+					if (title2 == null || colors == null){
+						req.setAttribute("error", "必须添加选项");
+						return "forward:/chatmanage";
+					}
 					//处理投票标题
 					for (int i = 0; i < colors.length; i++) {
 						VoteTitles voteTitle=new VoteTitles();
